@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   mysql:
@@ -23,7 +23,7 @@ services:
       DB_PASSWORD: Aditya
       DB_NAME: crud_app
       JWT_SECRET: devopsShackSuperSecretKey
-      RESET_ADMIN_PASS: 'true'
+      RESET_ADMIN_PASS: "true"
     depends_on:
       - mysql
     ports:
@@ -36,7 +36,7 @@ services:
       - "3000:80"
     depends_on:
       - backend
+    restart: on-failure
 
 volumes:
   mysql-data:
-
