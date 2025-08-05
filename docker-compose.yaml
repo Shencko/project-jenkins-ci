@@ -30,13 +30,15 @@ services:
       - "5000:5000"
 
   frontend:
-    build: ./client
+    build:
+      context: ./client
+      args:
+        REACT_APP_API: http://backend-svc:5000
     container_name: frontend-react
     ports:
       - "3000:80"
     depends_on:
       - backend
-    restart: on-failure
 
 volumes:
   mysql-data:
