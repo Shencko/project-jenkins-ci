@@ -33,7 +33,7 @@ services:
     build:
       context: ./client
       args:
-        REACT_APP_API: http://backend-svc:5000
+        REACT_APP_API: http://backend:5000
     container_name: frontend-react
     ports:
       - "3000:80"
