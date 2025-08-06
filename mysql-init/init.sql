@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS new_crud_app;
+CREATE DATABASE IF NOT EXISTS crud_app;
 
-USE new_crud_app;
+USE crud_app;
 
 CREATE TABLE IF NOT EXISTS users (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -10,4 +10,5 @@ CREATE TABLE IF NOT EXISTS users (
   role ENUM('admin', 'viewer') NOT NULL DEFAULT 'viewer',
   is_active TINYINT(1) DEFAULT 1,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-); 
+);
+
