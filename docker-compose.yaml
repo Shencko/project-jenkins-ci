@@ -7,7 +7,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: Aditya
-      MYSQL_DATABASE: crud_app
+      MYSQL_DATABASE: new_crud_app
     volumes:
       - mysql-data:/var/lib/mysql
       - ./mysql-init:/docker-entrypoint-initdb.d
@@ -21,7 +21,7 @@ services:
       DB_HOST: mysql
       DB_USER: root
       DB_PASSWORD: Aditya
-      DB_NAME: crud_app
+      DB_NAME: new_crud_app
       JWT_SECRET: devopsShackSuperSecretKey
       RESET_ADMIN_PASS: "true"
     depends_on:
