@@ -22,10 +22,7 @@ FROM nginx:alpine
 # Install curl for debugging
 RUN apk add --no-cache curl
 
-# Copy correct default.conf to override nginx default
-COPY default.conf /etc/nginx/conf.d/default.conf
-
-# Copy React build output
+# Copy React build output to nginx default location
 COPY --from=build /app/build /usr/share/nginx/html
 
 # Prevent directory listings and ensure correct permissions
@@ -33,7 +30,7 @@ RUN chmod -R 755 /usr/share/nginx/html
 
 # Add health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost/health || exit 1
+  CMD curl -f http://localhost/ || exit 1
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
