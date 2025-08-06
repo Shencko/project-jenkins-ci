@@ -28,6 +28,7 @@ services:
       - mysql
     ports:
       - "5000:5000"
+    command: ["/wait-for-it.sh", "mysql:3306", "--timeout=60", "--strict", "--", "node", "app.js"]
 
   frontend:
     build:
