@@ -28,13 +28,9 @@ services:
       - mysql
     ports:
       - "5000:5000"
-    command: ["/wait-for-it.sh", "mysql:3306", "--timeout=60", "--strict", "--", "node", "app.js"]
-
+ 
   frontend:
-    build:
-      context: ./client
-      args:
-        REACT_APP_API: http://backend:5000
+    build: ./client
     container_name: frontend-react
     ports:
       - "3000:80"

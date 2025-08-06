@@ -4,14 +4,10 @@ FROM node:18-alpine AS build
 WORKDIR /app
 COPY package*.json ./
 
-# Install dependencies with verbose output
-RUN npm install --verbose
+# clean and fast install using lock file (CI-style)
+RUN npm ci
 
 COPY . .
-
-# Optional: pass REACT_APP_API as build arg
-ARG REACT_APP_API
-ENV REACT_APP_API=$REACT_APP_API
 
 # Build with verbose output to see any errors
 RUN npm run build
